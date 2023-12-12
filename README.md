@@ -1,4 +1,4 @@
-# Assignments Project
+# Assignments App
 The Assignments App is a web application designed to help users manage and organize their tasks effectively. The application consists of two main components: the Assignments.API backend, built with ASP.NET Core and C#, and the Assignments.Client frontend, developed using Angular.
 
 ![Local Image](./Screenshot.png)
