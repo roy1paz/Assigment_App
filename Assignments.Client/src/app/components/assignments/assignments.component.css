@@ -1,0 +1,9 @@
+:host >>> .upper-button {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
+  
+:host >>> .p-button-raised {
+    margin-right: 20px; /* Adjust the margin between buttons as needed */
+  }

@@ -1,0 +1,135 @@
+<!-- assignments.component.html -->
+<div class="container">
+  <div class="upper-button">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="New Assignment"
+      class="p-button-raised"
+      (click)="navigateToNewAssignment()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="{{ showArchives ? 'Hide Archives' : 'Show Archives' }}"
+      class="p-button-raised"
+      (click)="toggleShowArchives()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Archive Selected"
+      class="p-button-raised p-button-warning"
+      (click)="onArchiveSelected()"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Delete Selected"
+      class="p-button-raised p-button-danger"
+      (click)="onDeleteSelected()"
+    ></button>
+  </div>
+  <div class="row">
+    <h2 class="text">My Assignments</h2>
+    <p-table
+      [columns]="cols"
+      [value]="assignments"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [sortField]="defaultSortField"
+      [sortOrder]="defaultSortOrder"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <ng-container *ngFor="let col of columns">
+            <th *ngIf="col.field" [pSortableColumn]="col.field">
+              {{ col.header }}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+          </ng-container>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <td>
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="rowData.isSelected"
+            (onChange)="onSelectionChange(rowData)"
+          ></p-checkbox>
+        </td>
+        <tr>
+          <td *ngFor="let col of columns">
+            <ng-container
+              *ngIf="
+                col.field === 'id' ||
+                col.field === 'title' ||
+                col.field === 'description'
+              "
+            >
+              {{ rowData[col.field] }}
+            </ng-container>
+            <ng-container *ngIf="col.field === 'type'">
+              {{ getLabelForType(rowData[col.field]) }}
+            </ng-container>
+            <ng-container
+              *ngIf="col.field === 'startDate' || col.field === 'endDate'"
+            >
+              {{ rowData[col.field] | date : 'dd/MM/yyyy' }}
+            </ng-container>
+            <ng-container *ngIf="col.field === 'cyclic'">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100%;
+                "
+              >
+                {{ rowData[col.field] ? 'Yes' : 'No' }}
+              </div>
+            </ng-container>
+            <ng-container *ngIf="col.field === 'checkbox'">
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100%;
+                "
+              >
+                <p-checkbox
+                  [binary]="true"
+                  [(ngModel)]="rowData.isCompleted"
+                  (onChange)="onCompletedChange(rowData.id, rowData)"
+                ></p-checkbox>
+              </div>
+            </ng-container>
+          </td>
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="X"
+              class="p-button-raised p-button-danger"
+              (click)="onDelete(rowData.id)"
+            ></button>
+          </td>
+          <td *ngIf="!rowData.isArchive">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Archive"
+              class="p-button-raised p-button-warning"
+              (click)="onArchive(rowData.id, rowData)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

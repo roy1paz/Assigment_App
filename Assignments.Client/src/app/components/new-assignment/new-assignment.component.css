@@ -1,0 +1,23 @@
+:host >>> .p-field {
+  margin-top: 10px;
+}
+
+:host >>> .p-button-field
+{
+  margin-top: 20px;
+}
+
+:host >>> .container {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 100vh; /* This ensures that the container takes the full height of the viewport */
+}
+
+:host >>> .new-assignment-form {
+  transition: box-shadow 0.5s; /* Smooth transition for the hover effect */
+}
+
+:host >>> .new-assignment-form:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+}

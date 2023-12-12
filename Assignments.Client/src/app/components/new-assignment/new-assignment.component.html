@@ -1,0 +1,85 @@
+<div class="container">
+  <p-card styleClass="new-assignment-form flex justify-content-center" class="flex justify-content-center">
+    <form [formGroup]="newAssignmentForm" (ngSubmit)="addAssignment()">
+      <div class="p-field">
+        <p for="type" class="p-d-block">Type</p>
+        <p-dropdown [options]="types" formControlName="type"></p-dropdown>
+      </div>
+      <div class="p-field">
+        <p for="title" class="p-d-block">Title</p>
+        <input
+          type="text"
+          pInputText
+          placeholder="New Assignment"
+          formControlName="title"
+        />
+        <small
+          class=""
+          p-error
+          block
+          *ngIf="
+            newAssignmentForm.get('title')?.invalid &&
+            newAssignmentForm.get('title')?.dirty
+          "
+        >
+          Title is required
+        </small>
+      </div>
+      <div class="p-field">
+        <p for="description" class="p-d-block">Description</p>
+        <input
+          type="description"
+          pInputText
+          placeholder="Description"
+          formControlName="description"
+        />
+      </div>
+      <div class="p-field">
+        <p for="startDate" class="p-d-block">Start Date</p>
+        <p-calendar
+          formControlName="startDate"
+          (ngModelChange)="onStartDateChange()"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="Choose a date"
+          [minDate]="minStartDate"
+        ></p-calendar>
+        <small
+          class=""
+          p-error
+          block
+          *ngIf="
+            newAssignmentForm.get('startDate')?.invalid &&
+            newAssignmentForm.get('startDate')?.dirty
+          "
+        >
+          Start Date is required
+        </small>
+      </div>
+      <div class="p-field">
+        <p for="endDate" class="p-d-block">End Date</p>
+        <p-calendar
+          formControlName="endDate"
+          [showIcon]="true"
+          dateFormat="dd/mm/yy"
+          placeholder="Choose a date"
+          [minDate]="minEndDate"
+        ></p-calendar>
+      </div>
+      <div class="p-field">
+        <p for="type" class="p-d-block">Cyclic</p>
+        <p-dropdown [options]="cyclic" formControlName="cyclic"></p-dropdown>
+      </div>
+      <div class="p-button-field">
+        <button
+          pButton
+          type="submit"
+          class="p-button p-button-outline p-button-primary"
+          [disabled]="newAssignmentForm.invalid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </p-card>
+</div>
