@@ -15,11 +15,13 @@ The Assignments.API is a .NET Core project built with C# that serves as the back
    Run the following command in the terminal to apply the database migrations:
    ```bash
    dotnet ef database update
+   ```
    
 ### Run the API:
 Execute the following command to run the API project:
 ```bash
 dotnet run
+```
 
 # API Endpoints
 `GET /api/assignment`
@@ -49,6 +51,7 @@ Open `assignment.service.ts` and update the `baseApiUrl` to match the URL of you
 Execute the following command in the terminal to start the Angular app:
 ```bash
 npm start
+```
 
 ## Components
 `assignments.component`
