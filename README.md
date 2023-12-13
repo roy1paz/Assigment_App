@@ -12,15 +12,18 @@ The Assignments.API is a .NET Core project built with C# that serves as the back
 ### Getting Started
 
 1. **Configure Database Connection:**
-   Open the `appsettings.json` file and configure the `AssignmentDbConnectionString` with the appropriate user ID and password for your SQL Server.
+   Open the `appsettings.json` file and configure the `AssignmentDbConnectionString` with the appropriate `user ID` and `password` for your SQL Server.
 
 2. **Apply Database Migrations:**
-   Make sure you have an Assignments database.
-   Run the following command in the terminal to apply the database migrations:
+   * Make sure you have an Assignments database. If not, delete the `Migrations` folder and run the following command:
+   ```bash
+   dotnet ef migrations add InitialMigration
+   ```
+   * Run the following command in the terminal to apply the database migrations:
    ```bash
    dotnet ef database update
    ```
-   
+
 ### Run the API:
 Execute the following command to run the API project:
 ```bash
