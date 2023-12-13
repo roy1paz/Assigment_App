@@ -46,6 +46,8 @@ dotnet run
 * Deletes a specific assignment.
 `DELETE /api/assignment/{id}`
 
+###
+
 # Assignments.Client (Angular)
 ## Project Overview
 The Assignments.Client is an Angular project that serves as the frontend for interacting with the Assignments.API. It provides user interfaces for managing assignments.
