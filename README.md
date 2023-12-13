@@ -28,20 +28,20 @@ dotnet run
 ```
 
 # API Endpoints
-`GET /api/assignment`
 * Retrieves all assignments sorted by start date in descending order.
-`GET /api/assignment/{id}`
+`GET /api/assignment`
 * Retrieves a specific assignment by ID.
-`GET /api/assignment/type/{assignmentType}`
+`GET /api/assignment/{id}`
 * Retrieves assignments filtered by assignment type.
-`POST /api/assignment`
+`GET /api/assignment/type/{assignmentType}`
 * Adds a new assignment.
-`PUT /api/assignment/{id}/completed`
+`POST /api/assignment`
 * Updates the completion status of a specific assignment.
-`PUT /api/assignment/{id}/archive`
+`PUT /api/assignment/{id}/completed`
 * Updates the archive status of a specific assignment.
-`DELETE /api/assignment/{id}`
+`PUT /api/assignment/{id}/archive`
 * Deletes a specific assignment.
+`DELETE /api/assignment/{id}`
 
 # Assignments.Client (Angular)
 ## Project Overview
