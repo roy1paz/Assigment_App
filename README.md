@@ -3,7 +3,6 @@ The Assignments App is a web application designed to help users manage and organ
 
 ![Local Image](./Screenshot.png)
 
-
 ## Assignments.API (ASP.NET Core - C#)
 
 ### Project Overview
