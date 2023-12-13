@@ -46,7 +46,7 @@ dotnet run
 * Deletes a specific assignment.
 `DELETE /api/assignment/{id}`
 
-###
+___
 
 # Assignments.Client (Angular)
 ## Project Overview
