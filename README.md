@@ -64,6 +64,7 @@ npm start
 ## Components
 `assignments.component`
 * Displays a list of assignments and provides functionalities like sorting and archiving.
+<br />
 `new-assignment.component`
 * Allows users to add new assignments.
 ## Models
